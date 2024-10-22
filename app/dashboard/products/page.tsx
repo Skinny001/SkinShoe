@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { MoreHorizontal, PlusCircle, UserIcon } from "lucide-react";
 import Link from "next/link";
@@ -54,8 +54,11 @@ export default function ProductsRoute() {
                                         </Button>
                                     </DropdownMenuTrigger>
 
-                                    <DropdownMenuContent align="center">
+                                    <DropdownMenuContent align="end">
                                         <DropdownMenuLabel>Action</DropdownMenuLabel>
+                                        <DropdownMenuSeparator/>
+                                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                                        <DropdownMenuItem>Delete</DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
 
