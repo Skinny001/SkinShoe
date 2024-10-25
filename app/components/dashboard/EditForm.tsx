@@ -1,7 +1,5 @@
-"use client"
+"use client";
 
-import { createProduct } from "@/app/actions";
-import { UploadDropzone } from "@/app/lib/uploadthing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,18 +9,35 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { ChevronLeft, XIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { UploadDropzone } from "@/app/lib/uploadthing";
+import { SubmitButton } from "../SubmitButtons";
+import { useState } from "react";
 import { useFormState } from "react-dom";
-import {useForm} from '@conform-to/react'
+import { createProduct, editProduct } from "@/app/actions";
+import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { productSchema } from "@/app/lib/zodSchemas";
-import { useState } from "react";
-import Image from "next/image";
 import { categories } from "@/app/lib/categories";
-import { SubmitButton } from "@/app/components/SubmitButtons";
+import { type $Enums } from "@prisma/client";
 
-export default function ProductCreateRoute() {
-    const [images, setImages] = useState<string[]>([]);
-    const [lastResult, action] = useFormState (createProduct, undefined); 
+
+interface iAppProps {
+     data: {
+        name: string;
+        description: string;
+        status: $Enums.ProductStatus;
+        price: number;
+        images: string[];
+        category: $Enums.Category;
+        isFeatured: boolean;
+        id: string;
+    }
+}
+export function EditForm({ data }: iAppProps) {
+
+    const [images, setImages] = useState<string[]>(data.images);
+    const [lastResult, action] = useFormState (editProduct, undefined); 
     const [form, fields] = useForm({
         lastResult,
 
@@ -40,6 +55,7 @@ export default function ProductCreateRoute() {
     };
     return(
         <form id={form.id} onSubmit={form.onSubmit} action={action}>
+            <input type="hidden" name="productId" value={data.id}/>
             <div className="flex items-center gap-4">
                 <Button variant="outline" size="icon" asChild>
                     <Link href="/dashboard/products">
@@ -65,7 +81,7 @@ export default function ProductCreateRoute() {
                                 type="text"
                                 key={fields.name.key}
                                 name={fields.name.name}
-                                defaultValue={fields.name.initialValue}
+                                defaultValue={data.name}
                                 className="w-full"
                                 placeholder="Enter product name"
                             />
@@ -78,7 +94,7 @@ export default function ProductCreateRoute() {
                             <Textarea 
                                 key={fields.description.key}
                                 name={fields.description.name}
-                                defaultValue={fields.description.initialValue}
+                                defaultValue={data.description}
                                 placeholder="Write your description right here..."
                             />
 
@@ -90,7 +106,7 @@ export default function ProductCreateRoute() {
                             <Input 
                                 key={fields.price.key}
                                 name={fields.price.name}
-                                defaultValue={fields.price.initialValue}
+                                defaultValue={data.price}
                                 type="number" 
                                 placeholder="#50,000"
                             />
@@ -103,7 +119,7 @@ export default function ProductCreateRoute() {
                             <Switch
                                 key={fields.isFeatured.key}
                                 name={fields.isFeatured.name}
-                                defaultValue={fields.isFeatured.initialValue}
+                                checked={data.isFeatured}
                             />
                             <p className="text-red-500">{fields.isFeatured.errors}</p>
                         </div>
@@ -113,7 +129,7 @@ export default function ProductCreateRoute() {
                             <Select
                                 key={fields.status.key}
                                 name={fields.status.name}
-                                defaultValue={fields.status.initialValue}
+                                defaultValue={data.status}
                             >
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select Status"/>
@@ -132,7 +148,7 @@ export default function ProductCreateRoute() {
                             <Select 
                                 key={fields.category.key}
                                 name={fields.category.name}
-                                defaultValue={fields.category.initialValue}
+                                defaultValue={data.category}
                                 >
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select Category" />

@@ -30,7 +30,8 @@ model Product {
   status  ProductStatus
   price  Int
   images  String[]
-  Category  Category
+  category  Category
+  isFeatured  Boolean   @default(false)
 
   createdAt DateTime @default(now())
 }
