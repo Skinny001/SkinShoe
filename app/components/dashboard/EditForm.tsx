@@ -62,14 +62,14 @@ export function EditForm({ data }: iAppProps) {
                         <ChevronLeft className="w-4 h-4"/>
                     </Link>
                 </Button>
-                <h1 className="text-xl font-semibold tracking-tight">New Product</h1>
+                <h1 className="text-xl font-semibold tracking-tight">Edit Product</h1>
             </div>
 
             <Card className="mt-5">
                 <CardHeader>
                     <CardTitle>Product Details</CardTitle>
                     <CardDescription>
-                        In this form you can Create your product
+                        In this form you can update your product
                     </CardDescription>
                 </CardHeader>
 
@@ -119,7 +119,7 @@ export function EditForm({ data }: iAppProps) {
                             <Switch
                                 key={fields.isFeatured.key}
                                 name={fields.isFeatured.name}
-                                checked={data.isFeatured}
+                                defaultChecked={data.isFeatured}
                             />
                             <p className="text-red-500">{fields.isFeatured.errors}</p>
                         </div>
@@ -208,7 +208,7 @@ export function EditForm({ data }: iAppProps) {
                 </CardContent>
 
                 <CardFooter>
-                    <SubmitButton/>
+                    <SubmitButton text="Edit Product"/>
                 </CardFooter>
             </Card>
         </form>

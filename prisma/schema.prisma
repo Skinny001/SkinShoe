@@ -23,6 +23,14 @@ model User {
   createdAt DateTime @default(now())
 }
 
+model Banner{
+  id  String @id @default(uuid())
+  title String
+  imageString String
+
+  createdAt DateTime @default(now())
+}
+
 model Product {
   id String @id @default(uuid())
   name String
