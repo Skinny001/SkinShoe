@@ -1,10 +1,13 @@
-
+import { CategoriesSelection } from "../components/storefront/CategorySelection";
+import { FeaturedProducts } from "../components/storefront/FeaturedProduct";
+import { Hero } from "../components/storefront/Hero";
 
 export default function IndexPage() {
     return(
         <div>
-            
-            <h1>hello from thr store front</h1>
+            <Hero/>
+            <CategoriesSelection/>
+            <FeaturedProducts/>
         </div>
     )
 }
