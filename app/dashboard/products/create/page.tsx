@@ -20,6 +20,7 @@ import Image from "next/image";
 import { categories } from "@/app/lib/categories";
 import { SubmitButton } from "@/app/components/SubmitButtons";
 
+
 export default function ProductCreateRoute() {
     const [images, setImages] = useState<string[]>([]);
     const [lastResult, action] = useFormState (createProduct, undefined); 

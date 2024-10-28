@@ -1,8 +1,9 @@
 import prisma from "@/app/lib/db"
 import { LoadingProductCard, ProductCard } from "./ProductCard";
 import { Suspense } from "react";
+import {unstable_noStore as noStore} from "next/cache"
 
-async function getDate() {
+async function getData() {
     const data = await prisma.product.findMany({
         where: {
             status: "published",
@@ -41,7 +42,8 @@ export  function FeaturedProducts() {
 
 
 async function LoadFeaturedproducts() {
-    const data = await getDate();
+    noStore();
+    const data = await getData();
 
     return (
         <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
