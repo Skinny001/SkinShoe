@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,6 +43,20 @@ export function ProductCard({item}: iAppProps) {
                     Learn More!
                 </Link>
             </Button>
+        </div>
+    )
+}
+
+
+export function LoadingProductCard() {
+    return (
+        <div className="flex flex-col">
+            <Skeleton className="w-full h-[330px]"/>
+            <div className="flex flex-col mt-2 gap-y-2">
+                <Skeleton className="w-full h-4"/>
+                <Skeleton className="w-full h-6"/>
+            </div>
+            <Skeleton className="w-full h-10 mt-5"/>
         </div>
     )
 }

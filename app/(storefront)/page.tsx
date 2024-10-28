@@ -8,6 +8,7 @@ export default function IndexPage() {
             <Hero/>
             <CategoriesSelection/>
             <FeaturedProducts/>
+            
         </div>
     )
 }
