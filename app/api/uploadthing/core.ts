@@ -12,6 +12,7 @@ export const ourFileRouter = {
     .middleware(async ({ req }) => {
       const { getUser } = getKindeServerSession();
       const user = await getUser();
+      console.log(req)
 
       // If you throw, the user will not be able to upload
       if (!user || user.email !== "bamigboyetemitope84@gmail.com") 
@@ -38,6 +39,7 @@ export const ourFileRouter = {
   .middleware(async ({ req }) => {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
+    console.log(req)
 
     // If you throw, the user will not be able to upload
     if (!user || user.email !== "bamigboyetemitope84@gmail.com") 

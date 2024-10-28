@@ -151,7 +151,7 @@ export default function ProductCreateRoute() {
 
                         <div className="flex flex-col gap-3">
                             <Label>Images</Label>
-                            <Input type="hidden" value={images} key={fields.images.key} name={fields.images.name} defaultValue={fields.images.initialValue as any}/>
+                            <Input type="hidden" value={images} key={fields.images.key} name={fields.images.name} defaultValue={fields.images.initialValue as string}/>
                            {images.length > 0 ? (
                                 <div className="flex gap-5">
                                     {images.map((image, index) => (

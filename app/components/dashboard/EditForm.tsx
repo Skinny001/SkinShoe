@@ -14,7 +14,7 @@ import { UploadDropzone } from "@/app/lib/uploadthing";
 import { SubmitButton } from "../SubmitButtons";
 import { useState } from "react";
 import { useFormState } from "react-dom";
-import { createProduct, editProduct } from "@/app/actions";
+import {  editProduct } from "@/app/actions";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { productSchema } from "@/app/lib/zodSchemas";
@@ -167,7 +167,7 @@ export function EditForm({ data }: iAppProps) {
 
                         <div className="flex flex-col gap-3">
                             <Label>Images</Label>
-                            <Input type="hidden" value={images} key={fields.images.key} name={fields.images.name} defaultValue={fields.images.initialValue as any}/>
+                            <Input type="hidden" value={images} key={fields.images.key} name={fields.images.name} defaultValue={fields.images.initialValue as string}/>
                            {images.length > 0 ? (
                                 <div className="flex gap-5">
                                     {images.map((image, index) => (

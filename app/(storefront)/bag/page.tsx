@@ -4,7 +4,6 @@ import { Cart } from "@/app/lib/interfaces";
 import { redis } from "@/app/lib/redis";
 import { Button } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
-import { Item } from "@radix-ui/react-dropdown-menu";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +33,7 @@ export default async function BagRoute() {
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                     <ShoppingBag className="w-10 h-10 text-primary"/>
                 </div>
-                <h2 className="mt-6 text-xl font-semibold">You don't have any product in your Bag</h2>
+                <h2 className="mt-6 text-xl font-semibold">You dont have any product in your Bag</h2>
                 <p className="mb-8 mt-2 text-center text-sm leading-6 text-muted-foreground max-w-sm mx-auto">
                     You currently dont have any products in your shopping bag. please add some so that you can see them right here.
                 </p>

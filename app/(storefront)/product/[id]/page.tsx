@@ -3,8 +3,7 @@ import { ShoppingBagButton } from "@/app/components/SubmitButtons";
 import { FeaturedProducts } from "@/app/components/storefront/FeaturedProduct";
 import { ImageSlider } from "@/app/components/storefront/ImageSlider";
 import prisma from "@/app/lib/db"
-import { Button } from "@/components/ui/button";
-import { ShoppingBag, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 async function getDate(productId: string ) {

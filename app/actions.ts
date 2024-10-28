@@ -11,7 +11,7 @@ import { revalidatePath } from "next/cache";
 import {stripe} from "./lib/stripe";
 import Stripe from "stripe";
 
-export async function createProduct(prevState: unknown, formData: FormData) {
+export async function createProduct(prevState: any, formData: FormData) {
     const {getUser} = getKindeServerSession()
     const user = await getUser()
 
@@ -162,7 +162,7 @@ export async function addItem(productId: string) {
         return redirect("/");
     }
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
     const selectedProduct = await prisma.product.findUnique({
         select: {
@@ -236,7 +236,7 @@ export async function delItem(formData: FormData) {
 
     const productId = formData.get('productId');
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
 
     if(cart && cart.items) {
@@ -263,7 +263,7 @@ export async function checkOut() {
 
 
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
 
 
