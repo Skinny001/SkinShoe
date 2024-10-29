@@ -12,7 +12,7 @@ export async function Navbar() {
     const {getUser} = getKindeServerSession();
     const user = await getUser();
 
-    const cart: Cart | null = await redis.get(`cart-${user?.id}`)
+    const cart: Cart | null = await redis?.get(`cart-${user?.id}`)
 
     const total = cart?.items.reduce((sum, item) => sum + item.quantity,0) || 0;
 
@@ -46,7 +46,7 @@ export async function Navbar() {
                     </>
 
                 ):(
-                    <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2">
+                    <div className=" hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2">
                         <Button variant="ghost" asChild>
                             <LoginLink>
                                 Sign in
