@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## About SkinShoe 
+An E-commerce website for store owners to create an online store to display their products and for people to purchase their product. but right now the Admin roll is manage by me for now untill the product is done.
+
+## tools use:
+- Next.js
+- Tailwind css
+- Prisma
+- Ui shadem
+- Typescript
+- Stripe
+
 ## Getting Started
 
 First, run the development server:
