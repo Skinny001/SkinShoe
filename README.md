@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## About SkinShoe 
 An E-commerce website for store owners to create an online store to display their products and for people to purchase their product. but right now the Admin roll is manage by me for now untill the product is done.
 
-## tools use:
+## Tools use:
 - Next.js
 - Tailwind css
 - Prisma
