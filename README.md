@@ -10,6 +10,7 @@ An E-commerce website for store owners to create an online store to display thei
 - Ui shadem
 - Typescript
 - Stripe
+- Kinde
 
 ## Getting Started
 
